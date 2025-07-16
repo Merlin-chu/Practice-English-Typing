@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                         if (englishLines.length > 0 && chineseLines.length > 0) {
                             quotes.push({
-                                english: englishLines.join(' '),
+                                english: englishLines.join(' ').replace(/[‘’′‵]/g, "'").replace(/[“”″‶]/g, '"').replace(/。/g, '.').replace(/，/g, ',').replace(/？/g, '?').replace(/！/g, '!').replace(/；/g, ';').replace(/：/g, ':').replace(/（/g, '(').replace(/）/g, ')').replace(/【/g, '[').replace(/】/g, ']').replace(/｛/g, '{').replace(/｝/g, '}').replace(/／/g, '/').replace(/、/g, ',').replace(/《/g, '<').replace(/》/g, '>').replace(/～/g, '~').replace(/—/g, '-').replace(/–/g, '-').replace(/…/g, '...'),
                                 chinese: chineseLines.join(' ')
                             });
                         }
@@ -183,10 +183,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentChar = textCharacters[currentPosition];
         // 标准化输入字符，处理全角符号和不同类型的撇号
         const normalizedKey = e.key
-            .replace(/。/g, '.')
-            .replace(/，/g, ',')
-            .replace(/‘|’/g, "'")
-            .replace(/“|”/g, '"');
+                .replace(/。/g, '.')
+                .replace(/，/g, ',')
+                .replace(/[‘’′‵]/g, "'")
+                .replace(/[“”″‶]/g, '"')
+                .replace(/？/g, '?')
+                .replace(/！/g, '!')
+                .replace(/；/g, ';')
+                .replace(/：/g, ':')
+                .replace(/（/g, '(')
+                .replace(/）/g, ')')
+                .replace(/【/g, '[')
+                .replace(/】/g, ']')
+                .replace(/｛/g, '{')
+                .replace(/｝/g, '}')
+                .replace(/／/g, '/')
+                .replace(/、/g, ',')
+                .replace(/《/g, '<')
+                .replace(/》/g, '>')
+                .replace(/～/g, '~')
+                .replace(/—/g, '-')
+                .replace(/–/g, '-')
+                .replace(/…/g, '...')
+            .replace(/＼/g, '\\')
+            .replace(/　/g, ' ');
         const pressedKey = e.key === ' ' ? ' ' : normalizedKey;
 
         // 检查输入是否正确
