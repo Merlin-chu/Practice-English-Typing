@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice English Typing:用键盘学习英文</title>
+    <link rel="stylesheet" href="simple-type.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Practice English Typing</h1>
+        <h1>用键盘学习英文</h1>
+
+        <div class="description">
+            <p>Practice English typing while gaining wisdom.</p>
+            <p>Text source: Kevin Kelly's book</p>
+            <p> <em>Excellent Advice for Living: Wisdom I Wish I'd Known Earlier</em></p>
+        </div>
+
+        <div class="stats-container">
+            <div class="stats">
+                <div>速度: <span id="speed">0</span> 字符/分钟</div>
+                <div>错误: <span id="errors">0</span> 次</div>
+            </div>
+        </div>
+
+        <div id="typing-area">
+            <div id="input-div" class="typing-text"></div>
+            <div id="translation-div" class="translation-text"></div>
+        </div>
+
+        <button id="new-quote-button">再来一条</button>
+        
+        <div id="results" class="results-panel">
+            <h2>练习结果</h2>
+            <div class="result-item">最终速度: <span id="final-speed">0</span> 字符/分钟</div>
+            <div class="result-item">错误率: <span id="error-rate">0</span>%</div>
+            <div class="error-chars">
+                <h3>错误字符统计:</h3>
+                <ul id="error-list"></ul>
+            </div>
+            <button id="restart-button">再来一次</button>
+        </div>
+    </div>
+
+    <script src="simple-type.js"></script>
+</body>
+</html>
